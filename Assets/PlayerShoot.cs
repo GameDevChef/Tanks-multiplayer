@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class PlayerShoot : NetworkBehaviour {
 
-    PlayerController m_PlayerController;
+    PlayerManager m_PlayerController;
 
     public float m_Firerate;
     float m_waitTime;
@@ -20,7 +20,7 @@ public class PlayerShoot : NetworkBehaviour {
 
     private void Awake()
     {
-        m_PlayerController = GetComponent<PlayerController>();
+        m_PlayerController = GetComponent<PlayerManager>();
     }
 
     private void Start()

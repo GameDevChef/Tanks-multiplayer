@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerController : NetworkBehaviour {
+public class PlayerManager : NetworkBehaviour {
 
     PlayerSetup m_PlayerSetup;
     PlayerHealth m_PlayerHealth;

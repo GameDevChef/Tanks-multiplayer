@@ -13,7 +13,7 @@ public class PlayerHealth : NetworkBehaviour {
 
     Canvas[] m_canvases;
 
-    PlayerController m_Controller;
+    PlayerManager m_Controller;
 
     public float m_MaxHealth;
 
@@ -25,7 +25,7 @@ public class PlayerHealth : NetworkBehaviour {
     public RectTransform m_HealthRect;
     float m_maxDeltaSize;
 
-    PlayerController m_lastAttacker;
+    PlayerManager m_lastAttacker;
 
     [SyncVar]
     public bool m_IsDead;
@@ -35,7 +35,7 @@ public class PlayerHealth : NetworkBehaviour {
         m_renderers = GetComponentsInChildren<Renderer>();
         m_colliders = GetComponentsInChildren<Collider>();
         m_canvases = GetComponentsInChildren<Canvas>();
-        m_Controller = GetComponent<PlayerController>();
+        m_Controller = GetComponent<PlayerManager>();
         m_maxDeltaSize = m_HealthRect.sizeDelta.x;
     }
 
@@ -44,7 +44,7 @@ public class PlayerHealth : NetworkBehaviour {
         ResetOnSpawn();
     }
 
-    public void TakeDamage(float _amount, PlayerController _attacker)
+    public void TakeDamage(float _amount, PlayerManager _attacker)
     {
         if (!isServer)
             return;

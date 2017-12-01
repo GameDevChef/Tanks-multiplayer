@@ -21,7 +21,7 @@ public class Bullet : NetworkBehaviour {
 
     public float m_Damage;
 
-    public PlayerController m_Owner;
+    public PlayerManager m_Owner;
 
     private void Awake()
     {

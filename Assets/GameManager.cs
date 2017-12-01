@@ -9,7 +9,7 @@ public class GameManager : NetworkBehaviour {
 
     public static GameManager Instance;
 
-    public List<PlayerController> m_AllPlayersList = new List<PlayerController>();
+    public List<PlayerManager> m_AllPlayersList = new List<PlayerManager>();
 
     public List<Text> m_NameTextsList = new List<Text>();
 
@@ -26,7 +26,7 @@ public class GameManager : NetworkBehaviour {
     [SyncVar]
     bool  m_gameOver;
 
-    PlayerController m_Winner;
+    PlayerManager m_Winner;
     
     [SyncVar (hook = "UpdateScoreBoard")]
     public int m_playerCount;
@@ -86,7 +86,7 @@ public class GameManager : NetworkBehaviour {
     }
 
 
-    public void GameOver(PlayerController _winner)
+    public void GameOver(PlayerManager _winner)
     {
         m_Winner = _winner;
         m_gameOver = true;
@@ -136,7 +136,7 @@ public class GameManager : NetworkBehaviour {
     [ClientRpc]
     void RpcSetPlayersState(bool _state)
     {
-        PlayerController[] allPlayers = FindObjectsOfType<PlayerController>();
+        PlayerManager[] allPlayers = FindObjectsOfType<PlayerManager>();
         for (int i = 0; i < allPlayers.Length; i++)
         {
             allPlayers[i].enabled = _state;
@@ -162,7 +162,7 @@ public class GameManager : NetworkBehaviour {
     {
         if(m_playerCount < m_MaxPlayers)
         {
-            m_AllPlayersList.Add(_setup.GetComponent<PlayerController>());
+            m_AllPlayersList.Add(_setup.GetComponent<PlayerManager>());
             _setup.m_PlayerColor = m_PlayerColors[m_playerCount];
             _setup.m_PlayerNum = m_playerCount + 1;
             m_playerCount++;
@@ -182,7 +182,7 @@ public class GameManager : NetworkBehaviour {
 
         for (int i = 0; i < _count; i++)
         {
-            PlayerController controller = m_AllPlayersList[i];
+            PlayerManager controller = m_AllPlayersList[i];
             names[i] = controller.GetName();
             scores[i] = controller.m_Score;
         }
@@ -216,7 +216,7 @@ public class GameManager : NetworkBehaviour {
     [ClientRpc]
     private void RpcResetGame()
     {
-        PlayerController[] controllers = FindObjectsOfType<PlayerController>();
+        PlayerManager[] controllers = FindObjectsOfType<PlayerManager>();
 
         for (int i = 0; i < controllers.Length; i++)
         {
