@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Prototype.NetworkLobby
 {
@@ -11,6 +12,14 @@ namespace Prototype.NetworkLobby
     //Any LobbyHook can then grab it and pass those value to the game player prefab (see the Pong Example in the Samples Scenes)
     public class LobbyPlayer : NetworkLobbyPlayer
     {
+        public int m_AvatarIndex = -1;
+
+        [SerializeField]
+        Button m_car1Button;
+
+        [SerializeField]
+        Button m_car2Button;
+
         static Color[] Colors = new Color[] { Color.magenta, Color.red, Color.cyan, Color.blue, Color.green, Color.yellow };
         //used on server to avoid assigning the same color to two player
         static List<int> _colorInUse = new List<int>();
@@ -101,6 +110,10 @@ namespace Prototype.NetworkLobby
 
         void SetupLocalPlayer()
         {
+
+            m_car1Button.onClick.AddListener(delegate { PickCar(0); });
+            m_car2Button.onClick.AddListener(delegate { PickCar(1); });
+
             nameInput.interactable = true;
             remoteIcone.gameObject.SetActive(false);
             localIcone.gameObject.SetActive(true);
@@ -135,6 +148,32 @@ namespace Prototype.NetworkLobby
             //when OnClientEnterLobby is called, the loval PlayerController is not yet created, so we need to redo that here to disable
             //the add button if we reach maxLocalPlayer. We pass 0, as it was already counted on OnClientEnterLobby
             if (LobbyManager.s_Singleton != null) LobbyManager.s_Singleton.OnPlayersNumberModified(0);
+        }
+
+        void PickCar(int _index)
+        {
+            m_AvatarIndex = _index;
+
+            if (isServer)
+            {
+                RpcSelectCar(m_AvatarIndex);
+            }
+            else
+            {
+                CmdSelectCar(m_AvatarIndex);
+            }
+        }
+
+        [Command]
+        void CmdSelectCar(int _index)
+        {
+            LobbyManager.s_Singleton.SetPlayerTypeLobby(GetComponent<NetworkIdentity>().connectionToClient, _index);
+        }
+
+        [ClientRpc]
+        void RpcSelectCar(int _index)
+        {
+            CmdSelectCar(_index);
         }
 
         //This enable/disable the remove button depending on if that is the only local player or not

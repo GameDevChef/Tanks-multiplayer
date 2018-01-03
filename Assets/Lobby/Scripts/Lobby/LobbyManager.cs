@@ -5,12 +5,15 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Prototype.NetworkLobby
 {
     public class LobbyManager : NetworkLobbyManager 
     {
+        public Dictionary<int, int> m_CurrentPlayersDict;
+
         static short MsgKicked = MsgType.Highest + 1;
 
         static public LobbyManager s_Singleton;
@@ -55,6 +58,7 @@ namespace Prototype.NetworkLobby
 
         void Start()
         {
+            m_CurrentPlayersDict = new Dictionary<int, int>();
             s_Singleton = this;
             _lobbyHooks = GetComponent<Prototype.NetworkLobby.LobbyHook>();
             currentPanel = mainMenuPanel;
@@ -275,6 +279,11 @@ namespace Prototype.NetworkLobby
         //But OnLobbyClientConnect isn't called on hosting player. So we override the lobbyPlayer creation
         public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId)
         {
+            if (!m_CurrentPlayersDict.ContainsKey(conn.connectionId))
+            {
+                m_CurrentPlayersDict.Add(conn.connectionId, 0);
+            }
+
             GameObject obj = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
 
             LobbyPlayer newPlayer = obj.GetComponent<LobbyPlayer>();
@@ -293,6 +302,25 @@ namespace Prototype.NetworkLobby
             }
 
             return obj;
+        }
+
+        public void SetPlayerTypeLobby(NetworkConnection _conn, int _type)
+        {
+            if (m_CurrentPlayersDict.ContainsKey(_conn.connectionId))
+            {
+                m_CurrentPlayersDict[_conn.connectionId] = _type;
+            }
+        }
+
+        public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId)
+        {
+            int index = m_CurrentPlayersDict[conn.connectionId];
+
+            GameObject playerPrefab = Instantiate(spawnPrefabs[index],
+                startPositions[conn.connectionId].position,
+                Quaternion.identity);
+
+            return playerPrefab;
         }
 
         public override void OnLobbyServerPlayerRemoved(NetworkConnection conn, short playerControllerId)

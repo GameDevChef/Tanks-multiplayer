@@ -349,16 +349,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454b9c3d34cbe1d4e8e01db67e5d690e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_hitEffect: {fileID: 198125341347830138}
   m_RB: {fileID: 0}
-  m_Speed: 60
-  m_Lifetime: 10
-  m_Effect: {fileID: 198125341347830138}
-  m_BounceTagList:
+  m_speed: 40
+  m_lifetime: 10
+  m_maxBounces: 2
+  m_damage: 1
+  m_bounceTagList:
   - Bounce
-  m_CollisionTagList:
+  m_collisionTagList:
   - Player
-  m_MaxBounces: 2
-  m_Damage: 1
 --- !u!114 &114484612006101782
 MonoBehaviour:
   m_ObjectHideFlags: 1

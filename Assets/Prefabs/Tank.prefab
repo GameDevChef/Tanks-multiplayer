@@ -791,13 +791,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970119905731078}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
+  m_Mass: 10
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &65051308824701522
 BoxCollider:
@@ -856,12 +856,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnEffectPrefab: {fileID: 118206, guid: 49cea2316ec6a41589509c0e782d9213, type: 2}
-  m_Score: 0
   m_turretTransform: {fileID: 4892086600042528}
   m_bodyTransform: {fileID: 4663993834825376}
+  m_Score: 0
   m_moveSpeed: 10
-  m_bodyRotationSpeed: 10
-  m_turretRotationSpeed: 10
+  m_bodyRotationSpeed: 2
+  m_turretRotationSpeed: 2
 --- !u!114 &114078326391741124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -917,8 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerColor: {r: 0.9117647, g: 0.020112475, b: 0.020112475, a: 1}
-  m_BaseName: PLAYER
-  m_PlayerNum: 1
+  m_name: 
   m_PlayernameText: {fileID: 114372045027493726}
 --- !u!114 &114331834378973278
 MonoBehaviour:
@@ -1042,7 +1041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7848897080430c4c8ea6302174ac5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
 --- !u!114 &114653802876026806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1054,10 +1052,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c5ab075c68ae4da4cbf3359187227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 3
-  m_EffectGO: {fileID: 140182, guid: ead306b39f6b0428fa246bfff7d603ff, type: 2}
-  m_HealthRect: {fileID: 224418613689390448}
+  m_deathEffect: {fileID: 140182, guid: ead306b39f6b0428fa246bfff7d603ff, type: 2}
+  m_healthRect: {fileID: 224418613689390448}
   m_IsDead: 0
+  m_maxHealth: 3
 --- !u!114 &114720823625827192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1069,7 +1067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7848897080430c4c8ea6302174ac5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
 --- !u!114 &114731472090340616
 MonoBehaviour:
   m_ObjectHideFlags: 1

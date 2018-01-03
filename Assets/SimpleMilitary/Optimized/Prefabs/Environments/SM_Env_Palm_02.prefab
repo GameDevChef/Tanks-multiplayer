@@ -10,12 +10,13 @@ GameObject:
   - component: {fileID: 479606}
   - component: {fileID: 3386936}
   - component: {fileID: 2312528}
+  - component: {fileID: 65076987186319452}
   m_Layer: 0
   m_Name: SM_Env_Palm_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &479606
 Transform:
@@ -23,9 +24,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.012197314, y: 0.6362256, z: 0.029665634, w: 0.77083606}
+  m_LocalPosition: {x: 84.822044, y: 0, z: 63.869686}
+  m_LocalScale: {x: 1.1257148, y: 1.1257145, z: 1.1257145}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108776}
   m_IsPrefabParent: 1
+--- !u!65 &65076987186319452
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.05, y: 7.7006154, z: 1.01}
+  m_Center: {x: 0, y: 3.8503077, z: 0.000000014343516}

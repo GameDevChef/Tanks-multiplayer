@@ -10,12 +10,13 @@ GameObject:
   - component: {fileID: 460702}
   - component: {fileID: 3319990}
   - component: {fileID: 2377254}
+  - component: {fileID: 65745208513484094}
   m_Layer: 0
   m_Name: SK_Veh_Radar_Unit_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &184612
 GameObject:
@@ -32,7 +33,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &460702
 Transform:
@@ -40,14 +41,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.9355673, z: -0, w: 0.35314834}
+  m_LocalPosition: {x: 13.86562, y: 0, z: 95.90497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 138.64, z: 0}
 --- !u!4 &463000
 Transform:
   m_ObjectHideFlags: 1
@@ -154,3 +155,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 177482}
   m_IsPrefabParent: 1
+--- !u!65 &65745208513484094
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9811723, y: 2.7194726, z: 4.0887628}
+  m_Center: {x: -0.0016045568, y: 1.359707, z: 0.03879058}

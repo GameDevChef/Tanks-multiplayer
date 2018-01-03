@@ -10,12 +10,13 @@ GameObject:
   - component: {fileID: 424376}
   - component: {fileID: 3393112}
   - component: {fileID: 2394434}
+  - component: {fileID: 65188429155966054}
   m_Layer: 0
   m_Name: SM_Env_Rock_Brown_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &424376
 Transform:
@@ -23,9 +24,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.32886553, z: -0, w: 0.94437677}
+  m_LocalPosition: {x: -4.086685, y: 0, z: 92.8388}
+  m_LocalScale: {x: 2.1225502, y: 2.1225488, z: 2.1225502}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,3 +83,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 109056}
   m_IsPrefabParent: 1
+--- !u!65 &65188429155966054
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4362403, y: 0.60028315, z: 1.0623239}
+  m_Center: {x: 0.0000025331972, y: 0.30014157, z: -7.5495166e-14}
