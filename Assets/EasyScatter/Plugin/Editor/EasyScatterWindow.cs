@@ -175,7 +175,7 @@ public class EasyScatterWindow : EditorWindow {
 		}
 
 		// Scale rotate last transform
-		if (Event.current.type == EventType.mouseDrag && Event.current.button == 0 && Event.current.control){
+		if (Event.current.type == EventType.MouseDrag && Event.current.button == 0 && Event.current.control){
 			Vector2 delta = Event.current.delta;
 
 			if (LastTransform){
@@ -1590,7 +1590,7 @@ public class EasyScatterWindow : EditorWindow {
 			brush.size -= 2f;
 		}
 
-		if ( Event.current.shift && Event.current.type == EventType.scrollWheel){
+		if ( Event.current.shift && Event.current.type == EventType.ScrollWheel){
 			brush.size -= Event.current.delta.y;
 			Event.current.Use();
 		}
@@ -1605,7 +1605,7 @@ public class EasyScatterWindow : EditorWindow {
 		}
 		
 
-		if ( Event.current.control && Event.current.type == EventType.scrollWheel){
+		if ( Event.current.control && Event.current.type == EventType.ScrollWheel){
 			brush.amount -= (int)Event.current.delta.y;
 			Event.current.Use();
 		}
@@ -1629,7 +1629,7 @@ public class EasyScatterWindow : EditorWindow {
 		}
 
 		// Auto select new copy
-		if (Event.current.type == EventType.keyUp && Event.current.keyCode == KeyCode.D && Event.current.control){
+		if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.D && Event.current.control){
 			dynamicSelections = Selection.transforms.ToList<Transform>();
 		}
 
